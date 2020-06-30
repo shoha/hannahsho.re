@@ -19,15 +19,15 @@ jobs:
     steps:
     # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
     - uses: actions/checkout@v2
-      
+
     - name: Build and push Docker images
       uses: docker/build-push-action@v1.1.0
       with:
         # Username used to log in to a Docker registry. If not set then no login will occur
-        username: ${secrets.DOCKER_USER}
+        username: ${{secrets.DOCKER_USER_NAME}}
         # Password or personal access token used to log in to a Docker registry. If not set then no login will occur
-        password: ${secrets.DOCKER_PASSWORD}
+        password: ${{secrets.DOCKER_PASSWORD}}
         # Docker repository to tag the image with
-        repository: ${secrets.DOCKER_REPOSITORY}
+        repository: ${{secrets.DOCKER_REPOSITORY}}
         # Comma-delimited list of tags. These will be added to the registry/repository to form the image's tags
-        tags: ${secrets.DOCKER_TAGS}
+        tags: ${{secrets.DOCKER_TAGS}}
