@@ -2,5 +2,6 @@ FROM node:14.4.0-stretch as base
 
 FROM base as build
 COPY . /app
+WORKDIR /app
 RUN yarn
-CMD next start
+CMD yarn next start
