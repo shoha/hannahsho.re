@@ -4,4 +4,5 @@ FROM base as build
 COPY . /app
 WORKDIR /app
 RUN yarn
-CMD yarn next start
+RUN yarn build
+CMD yarn start
