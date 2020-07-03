@@ -5,4 +5,4 @@ COPY . /app
 WORKDIR /app
 RUN yarn
 RUN yarn build
-CMD yarn start
+CMD yarn start --hostname 0.0.0.0
