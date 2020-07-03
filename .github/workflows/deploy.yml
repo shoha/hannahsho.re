@@ -40,6 +40,6 @@ jobs:
         key: ${{secrets.DOCKER_DEPLOY_KEY}}
         port: ${{secrets.DOCKER_DEPLOY_PORT}}
         script: |
-          docker pull ${{secrets.DOCKER_REPOSITORY}}:${{secrets.DOCKER_TAGS}}
-          docker stop -rm ${{secrets.DOCKER_CONTAINER_NAME}}
-          docker run --name="${{secrets.DOCKER_CONTAINER_NAME}}" ${{secrets.DOCKER_REPOSITORY}}:${{secrets.DOCKER_TAGS}}
+          sudo docker pull ${{secrets.DOCKER_REPOSITORY}}:${{secrets.DOCKER_TAGS}}
+          sudo docker stop -rm ${{secrets.DOCKER_CONTAINER_NAME}}
+          sudo docker run --name="${{secrets.DOCKER_CONTAINER_NAME}}" ${{secrets.DOCKER_REPOSITORY}}:${{secrets.DOCKER_TAGS}}
