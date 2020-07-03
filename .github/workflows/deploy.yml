@@ -20,7 +20,7 @@ jobs:
     # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
     - uses: actions/checkout@v2
 
-    - name: Build and push Docker images
+    - name: Build latest image.
       uses: docker/build-push-action@v1.1.0
       with:
         # Username used to log in to a Docker registry. If not set then no login will occur
@@ -31,3 +31,16 @@ jobs:
         repository: ${{secrets.DOCKER_REPOSITORY}}
         # Comma-delimited list of tags. These will be added to the registry/repository to form the image's tags
         tags: ${{secrets.DOCKER_TAGS}}
+
+    - name: Deploy latest image.
+      uses: appleboy/ssh-action@master
+      with:
+        host: ${{secrets.DOCKER_DEPLOY_HOST}}
+        username: ${{secrets.DOCKER_DEPLOY_USER}}
+        key: ${{secrets.DOCKER_DEPLOY_KEY}}
+        port: ${{secrets.DOCKER_DEPLOY_PORT}}
+        script: |
+          sudo docker pull ${{secrets.DOCKER_REPOSITORY}}:${{secrets.DOCKER_TAGS}}
+          sudo docker stop ${{secrets.DOCKER_CONTAINER_NAME}}
+          sudo docker rm ${{secrets.DOCKER_CONTAINER_NAME}}
+          sudo docker run --name="${{secrets.DOCKER_CONTAINER_NAME}}" ${{secrets.DOCKER_REPOSITORY}}:${{secrets.DOCKER_TAGS}}
