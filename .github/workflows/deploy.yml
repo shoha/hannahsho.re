@@ -1,6 +1,6 @@
 # This is a basic workflow to help you get started with Actions
 
-name: CI
+name: Deploy
 
 # Controls when the action will run. Triggers the workflow on push or pull request
 # events but only for the main branch
@@ -43,4 +43,4 @@ jobs:
           sudo docker pull ${{secrets.DOCKER_REPOSITORY}}:${{secrets.DOCKER_TAGS}}
           sudo docker stop ${{secrets.DOCKER_CONTAINER_NAME}}
           sudo docker rm ${{secrets.DOCKER_CONTAINER_NAME}}
-          sudo docker run -d --name="${{secrets.DOCKER_CONTAINER_NAME}}" -p 3000:3000 --net=host ${{secrets.DOCKER_REPOSITORY}}:${{secrets.DOCKER_TAGS}}
+          sudo docker run -d --restart on-failure --name="${{secrets.DOCKER_CONTAINER_NAME}}" -p 3000:3000 --net=host ${{secrets.DOCKER_REPOSITORY}}:${{secrets.DOCKER_TAGS}}

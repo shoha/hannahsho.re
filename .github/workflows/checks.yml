@@ -1,0 +1,20 @@
+name: Checks
+on:
+  pull_request:
+    branches:
+    - main
+
+jobs:
+  eslint_check:
+    name: ESLint
+    runs-on: ubuntu-latest
+    steps:
+      # Checkout action must run prior to eslint check
+    - name: Checkout
+      uses: actions/checkout@v1
+
+    - name: Install modules
+      run: yarn
+
+    - name: Run ESLint
+      run: yarn eslint . --ext .js,.jsx,.ts,.tsx
