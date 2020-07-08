@@ -15,6 +15,7 @@ export default function Home () {
         </h1>
 
         <h2>Hi, Brad. I love you 💖</h2>
+        <h3>💜💜💜 Happy Monthiversary 💜💜💜</h3>
 
         <p className="description">
           Get started by editing <code>pages/index.js</code>
