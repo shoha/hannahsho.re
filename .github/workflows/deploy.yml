@@ -6,7 +6,7 @@ name: Deploy
 # events but only for the main branch
 on:
   push:
-    branches: [ main ]
+    branches: [main]
 
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
@@ -17,30 +17,30 @@ jobs:
 
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
-    # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
-    - uses: actions/checkout@v2
+      # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
+      - uses: actions/checkout@v2
 
-    - name: Build latest image.
-      uses: docker/build-push-action@v1.1.0
-      with:
-        # Username used to log in to a Docker registry. If not set then no login will occur
-        username: ${{secrets.DOCKER_USER_NAME}}
-        # Password or personal access token used to log in to a Docker registry. If not set then no login will occur
-        password: ${{secrets.DOCKER_PASSWORD}}
-        # Docker repository to tag the image with
-        repository: ${{secrets.DOCKER_REPOSITORY}}
-        # Comma-delimited list of tags. These will be added to the registry/repository to form the image's tags
-        tags: ${{secrets.DOCKER_TAGS}}
+      - name: Build latest image.
+        uses: docker/build-push-action@v1.1.0
+        with:
+          # Username used to log in to a Docker registry. If not set then no login will occur
+          username: ${{secrets.DOCKER_USER_NAME}}
+          # Password or personal access token used to log in to a Docker registry. If not set then no login will occur
+          password: ${{secrets.DOCKER_PASSWORD}}
+          # Docker repository to tag the image with
+          repository: ${{secrets.DOCKER_REPOSITORY}}
+          # Comma-delimited list of tags. These will be added to the registry/repository to form the image's tags
+          tags: ${{secrets.DOCKER_TAGS}}
 
-    - name: Deploy latest image.
-      uses: appleboy/ssh-action@master
-      with:
-        host: ${{secrets.DOCKER_DEPLOY_HOST}}
-        username: ${{secrets.DOCKER_DEPLOY_USER}}
-        key: ${{secrets.DOCKER_DEPLOY_KEY}}
-        port: ${{secrets.DOCKER_DEPLOY_PORT}}
-        script: |
-          sudo docker pull ${{secrets.DOCKER_REPOSITORY}}:${{secrets.DOCKER_TAGS}}
-          sudo docker stop ${{secrets.DOCKER_CONTAINER_NAME}}
-          sudo docker rm ${{secrets.DOCKER_CONTAINER_NAME}}
-          sudo docker run -d --restart on-failure --name="${{secrets.DOCKER_CONTAINER_NAME}}" -p 3000:3000 --net=host ${{secrets.DOCKER_REPOSITORY}}:${{secrets.DOCKER_TAGS}}
+      - name: Deploy latest image.
+        uses: appleboy/ssh-action@master
+        with:
+          host: ${{secrets.DOCKER_DEPLOY_HOST}}
+          username: ${{secrets.DOCKER_DEPLOY_USER}}
+          key: ${{secrets.DOCKER_DEPLOY_KEY}}
+          port: ${{secrets.DOCKER_DEPLOY_PORT}}
+          script: |
+            sudo docker pull ${{secrets.DOCKER_REPOSITORY}}:${{secrets.DOCKER_TAGS}}
+            sudo docker stop ${{secrets.DOCKER_CONTAINER_NAME}}
+            sudo docker rm ${{secrets.DOCKER_CONTAINER_NAME}}
+            sudo docker run -d --restart on-failure --name="${{secrets.DOCKER_CONTAINER_NAME}}" -p 3000:3000 --net=host ${{secrets.DOCKER_REPOSITORY}}:${{secrets.DOCKER_TAGS}}
