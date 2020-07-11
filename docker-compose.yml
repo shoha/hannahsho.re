@@ -9,6 +9,7 @@ services:
       - NODE_ENV=development
     ports:
       - "3000:3000"
+      - "6006:6006"
     working_dir: /app
     volumes:
       - .:/app:cached
