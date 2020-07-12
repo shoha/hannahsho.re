@@ -13,6 +13,9 @@
     "prettier",
     "prettier/react"
   ],
+  "globals": {
+    "React": "writable"
+  },
   "parser": "@typescript-eslint/parser",
   "parserOptions": {
     "ecmaFeatures": {
@@ -22,7 +25,9 @@
     "sourceType": "module"
   },
   "plugins": ["react", "@typescript-eslint", "jest"],
-  "rules": {},
+  "rules": {
+    "react/react-in-jsx-scope": "off"
+  },
   "settings": {
     "react": {
       "version": "detect"
