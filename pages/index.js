@@ -27,7 +27,7 @@ export default function Home() {
               <span className="font-semibold">LinkedIn:</span> <a href="https://www.linkedin.com/in/shore-hannah/" className="text-blue-600">https://www.linkedin.com/in/shore-hannah/</a>
             </li>
             <li className="">
-              <span className="font-semibold">Resume:</span> <a href="/pdf/resume.pdf" className="text-blue-600">https://hannahsho.re/pdf/resume.pdf</a>
+              <span className="font-semibold">Resume:</span> <a href="https://bit.ly/3flolfd" className="text-blue-600">https://bit.ly/3flolfd</a>
             </li>
           </ul>
         </div>
