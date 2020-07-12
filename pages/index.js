@@ -57,11 +57,17 @@ export default function Home() {
             </li>
             <li className="">
               <span className="font-semibold">Resume:</span>{" "}
-              <a href="https://docs.google.com/document/u/3/d/1nW-5QOKj7zHre1XVhxn4o_h4kxbVJFNR-7PsjGnO8Cs/edit" className="text-blue-600">
+              <a
+                href="https://docs.google.com/document/u/3/d/1nW-5QOKj7zHre1XVhxn4o_h4kxbVJFNR-7PsjGnO8Cs/edit"
+                className="text-blue-600"
+              >
                 Google Docs
               </a>
               {" / "}
-              <a href="https://docs.google.com/document/d/1nW-5QOKj7zHre1XVhxn4o_h4kxbVJFNR-7PsjGnO8Cs/export?format=pdf" className="text-blue-600">
+              <a
+                href="https://docs.google.com/document/d/1nW-5QOKj7zHre1XVhxn4o_h4kxbVJFNR-7PsjGnO8Cs/export?format=pdf"
+                className="text-blue-600"
+              >
                 PDF
               </a>
             </li>
