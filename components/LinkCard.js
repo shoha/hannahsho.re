@@ -10,7 +10,7 @@ const LinkCard = ({ labelContents, children }) => {
 }
 
 LinkCard.propTypes = {
-  labelContents: PropTypes.element,
+  labelContents: PropTypes.string,
   children: PropTypes.any,
 }
 

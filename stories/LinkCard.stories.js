@@ -8,7 +8,7 @@ export default {
   excludeStories: /.*Data$/,
 }
 
-export const labelContentsData = <span>Email:</span>
+export const labelContentsData = "Email:"
 
 export const singleLinkData = (
   <Link href="mailto:hannah@example.com">Link 1</Link>
