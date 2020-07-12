@@ -1,5 +1,7 @@
 import Head from "next/head"
 import React from "react"
+import LinkCard from "../components/LinkCard"
+import LinkBasic from "../components/LinkBasic"
 
 export default function Home() {
   return (
@@ -32,44 +34,36 @@ export default function Home() {
           <h1 className="text-3xl font-serif">Hannah Shore</h1>
           <ul className="space-y-1">
             <li className="">
-              <span className="font-semibold">Email:</span>{" "}
-              <a
-                href="mailto:shore.hannah.e@gmail.com"
-                className="text-blue-600"
-              >
-                shore.hannah.e@gmail.com
-              </a>
+              <LinkCard labelContents="Email:">
+                <LinkBasic href="mailto:shore.hannah.e@gmail.com">
+                  shore.hannah.e@gmail.com
+                </LinkBasic>
+              </LinkCard>
             </li>
             <li className="">
-              <span className="font-semibold">Github:</span>{" "}
-              <a href="https://github.com/shoja" className="text-blue-600">
-                https://github.com/shoja
-              </a>
+              <LinkCard labelContents="Github:">
+                <LinkBasic href="https://github.com/shoja">
+                  https://github.com/shoja
+                </LinkBasic>
+              </LinkCard>
             </li>
             <li className="">
-              <span className="font-semibold">LinkedIn:</span>{" "}
-              <a
-                href="https://www.linkedin.com/in/shore-hannah/"
-                className="text-blue-600"
-              >
-                https://www.linkedin.com/in/shore-hannah/
-              </a>
+              <LinkCard labelContents="LinkedIn:">
+                <LinkBasic href="https://www.linkedin.com/in/shore-hannah">
+                  https://www.linkedin.com/in/shore-hannah
+                </LinkBasic>
+              </LinkCard>
             </li>
             <li className="">
-              <span className="font-semibold">Resume:</span>{" "}
-              <a
-                href="https://docs.google.com/document/u/3/d/1nW-5QOKj7zHre1XVhxn4o_h4kxbVJFNR-7PsjGnO8Cs/edit"
-                className="text-blue-600"
-              >
-                Google Docs
-              </a>
-              {" / "}
-              <a
-                href="https://docs.google.com/document/d/1nW-5QOKj7zHre1XVhxn4o_h4kxbVJFNR-7PsjGnO8Cs/export?format=pdf"
-                className="text-blue-600"
-              >
-                PDF
-              </a>
+              <LinkCard labelContents="Resume:">
+                <LinkBasic href="https://docs.google.com/document/u/3/d/1nW-5QOKj7zHre1XVhxn4o_h4kxbVJFNR-7PsjGnO8Cs/edit">
+                  Google Docs
+                </LinkBasic>
+                {" / "}
+                <LinkBasic href="https://docs.google.com/document/d/1nW-5QOKj7zHre1XVhxn4o_h4kxbVJFNR-7PsjGnO8Cs/export?format=pdf">
+                  PDF
+                </LinkBasic>
+              </LinkCard>
             </li>
           </ul>
         </div>
