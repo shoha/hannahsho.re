@@ -2,7 +2,7 @@ import PropTypes from "prop-types"
 
 const LinkBasic = ({ href, children }) => {
   return (
-    <a href={href} className="text-blue-600 hover:text-blue-800">
+    <a href={href} className="text-gray-700 hover:underline">
       {children}
     </a>
   )
