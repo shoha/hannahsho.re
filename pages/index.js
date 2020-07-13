@@ -5,7 +5,7 @@ import LinkBasic from "../components/LinkBasic"
 
 export default function Home() {
   return (
-    <div className="grid grid-cols-1 gap-4 container mx-auto px-4 mt-4">
+    <div className="min-h-screen bg-eggshell">
       <Head>
         <title>Hannah Shore</title>
         <link rel="icon" href="/favicon.ico" />
@@ -29,10 +29,10 @@ export default function Home() {
         <link rel="manifest" href="/site.webmanifest" />
       </Head>
 
-      <main className="text-gray-900">
-        <div className="space-y-1">
-          <h1 className="text-3xl font-serif">Hannah Shore</h1>
-          <ul className="space-y-1">
+      <main className="grid grid-cols-1 gap-4 container mx-auto px-4 pt-4 text-gray-900">
+        <div className="space-y-2 text-center">
+          <h1 className="text-4xl font-serif">Hannah Shore</h1>
+          <ul className="space-y-4 inline-block">
             <li className="">
               <LinkCard labelContents="Email:">
                 <LinkBasic href="mailto:shore.hannah.e@gmail.com">
