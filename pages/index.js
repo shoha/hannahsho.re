@@ -42,8 +42,8 @@ export default function Home() {
             </li>
             <li className="">
               <LinkCard labelContents="Github:">
-                <LinkBasic href="https://github.com/shoja">
-                  https://github.com/shoja
+                <LinkBasic href="https://github.com/shoha">
+                  https://github.com/shoha
                 </LinkBasic>
               </LinkCard>
             </li>
