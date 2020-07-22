@@ -2,8 +2,8 @@ import PropTypes from "prop-types"
 
 const LinkCard = ({ labelContents, children }) => {
   return (
-    <div className="link-card text-left flex space-x-1 bg-blush rounded-lg shadow hover:shadow-lg transition duration-100">
-      <div className="link-card__label flex-initial rounded-l-lg text-gray-700 bg-coral p-3">
+    <div className="link-card text-left flex flex-col md:flex-row space-x-1 bg-blush shadow hover:shadow-lg transition duration-100 rounded-lg">
+      <div className="link-card__label flex-initial text-gray-700 bg-coral p-3 rounded-tl-lg rounded-tr-lg md:rounded-tr-none md:rounded-bl-lg">
         {labelContents}
       </div>
       <div className="link-card__contents flex-initial p-3">{children}</div>
