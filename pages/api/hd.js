@@ -46,7 +46,8 @@ const post = async (req, res) => {
   const outputName = `tmp/out_${Date.now()}_${Math.ceil(
     Math.random() * 1000000
   ).toString()}`
-  const results = await execPr(
+
+  await execPr(
     `./java/jdk-18.0.1/bin/java -jar hdcli.jar ${inputName} public/format.hde ${outputName}`
   )
 
