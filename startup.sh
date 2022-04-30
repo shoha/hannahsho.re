@@ -5,3 +5,8 @@ if [ ! -d "java" ]; then
   tar zxf jdk-18_linux-x64_bin.tar.gz
   rm jdk-18_linux-x64_bin.tar.gz
 fi
+
+
+if [ ! -d "tmp" ]; then
+  mkdir tmp
+fi
