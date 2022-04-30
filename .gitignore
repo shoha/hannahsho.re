@@ -2,6 +2,8 @@
 /java
 /bin
 
+public/output.xml
+
 # next.js build output
 .next
 
