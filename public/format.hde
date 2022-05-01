@@ -1,6 +1,4 @@
-<?xml version="1.0" encoding="utf-8" ?><!--TEMPLATE_NAME-->XML - Generic<!--/TEMPLATE_NAME--><!--TEMPLATE_DESCRIPTION-->
-This template is intended to allow you to export your character data from Hero Designer as XML.<p>Written By Matt Butler</p>
-<!--/TEMPLATE_DESCRIPTION--><!--FILE_EXTENSION-->xml<!--/FILE_EXTENSION-->
+<?xml version="1.0" encoding="utf-8" ?>
 <character>
     <application>
         <name>Hero Designer</name>
@@ -247,7 +245,7 @@ This template is intended to allow you to export your character data from Hero D
     </martial_arts><!--/IFMARTIAL_ARTS--><!--IFCOMBAT_LEVELS-->
     <combat_levels><!--COMBAT_LEVELS-->
         <combat_level><!--IFLIST-->
-            <list_prefix><!--LISTPREFIX--></prefix><!--/IFLIST-->
+            <list_prefix><!--LISTPREFIX--></list_prefix><!--/IFLIST-->
             <cost><!--COMBAT_LEVEL_COST--></cost>
             <base_cost><!--BASE_COST--></base_cost>
             <active_cost><!--ACTIVE_COST--></active_cost>
@@ -263,6 +261,7 @@ This template is intended to allow you to export your character data from Hero D
             <active_cost><!--ACTIVE_COST--></active_cost>
             <text><![CDATA[<!--SKILL_TEXT-->]]></text><!--IFNOTES-->
             <notes><![CDATA[<!--SKILL_NOTES-->]]></notes><!--/IFNOTES-->
+            <roll><!--SKILL_ROLL--></roll>
         </skill><!--/SKILLS-->
     </skills><!--/IFSKILLS--><!--IFPERKS-->
     <perks><!--PERKS-->
@@ -273,6 +272,7 @@ This template is intended to allow you to export your character data from Hero D
             <active_cost><!--ACTIVE_COST--></active_cost>
             <text><![CDATA[<!--PERK_TEXT-->]]></text><!--IFNOTES-->
             <notes><![CDATA[<!--PERK_NOTES-->]]></notes><!--/IFNOTES-->
+            <perk_roll><!--PERK_ROLL--></perk_roll>
         </perk><!--/PERKS-->
     </perks><!--/IFPERKS--><!--IFTALENTS-->
     <talents><!--TALENTS-->
@@ -283,6 +283,7 @@ This template is intended to allow you to export your character data from Hero D
             <active_cost><!--ACTIVE_COST--></active_cost>
             <text><![CDATA[<!--TALENT_TEXT-->]]></text><!--IFNOTES-->
             <notes><![CDATA[<!--TALENT_NOTES-->]]></notes><!--/IFNOTES-->
+            <talent_roll><!--TALENT_ROLL--></talent_roll>
         </talent><!--/TALENTS-->
     </talents><!--/IFTALENTS--><!--IFPOWERS-->
     <powers><!--POWERS-->
