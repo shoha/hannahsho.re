@@ -262,6 +262,7 @@
             <text><![CDATA[<!--SKILL_TEXT-->]]></text><!--IFNOTES-->
             <notes><![CDATA[<!--SKILL_NOTES-->]]></notes><!--/IFNOTES-->
             <roll><!--SKILL_ROLL--></roll>
+            <display><!--DISPLAY--></display>
         </skill><!--/SKILLS-->
     </skills><!--/IFSKILLS--><!--IFPERKS-->
     <perks><!--PERKS-->
@@ -296,6 +297,8 @@
             <text><![CDATA[<!--POWER_TEXT-->]]></text>
             <end><!--POWER_END--></end><!--IFNOTES-->
             <notes><![CDATA[<!--POWER_NOTES-->]]></notes><!--/IFNOTES-->
+            <dmg><!--POWER_DMG--></dmg>
+            <input><!--INPUT--></input>
         </power><!--/POWERS-->
     </powers><!--/IFPOWERS--><!--IFEQUIPMENT-->
     <equipment><!--EQUIPMENT-->
