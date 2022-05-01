@@ -2,7 +2,6 @@ import { exec } from "child_process"
 import * as fs from "fs/promises"
 import NextCors from "nextjs-cors"
 import { promisify } from "util"
-import { XMLParser } from "fast-xml-parser"
 
 const execPr = promisify(exec)
 
