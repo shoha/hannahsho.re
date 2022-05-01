@@ -10,7 +10,10 @@ export default async (req, res) => {
 
   await NextCors(req, res, {
     methods: ["GET", "POST"],
-    origin: "*",
+    origin:
+      process.env.NODE_ENV === "development"
+        ? "*"
+        : "https://champions.vercel.app",
     optionsSuccessStatus: 200,
   })
 
