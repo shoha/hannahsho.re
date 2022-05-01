@@ -41,7 +41,7 @@ const post = async (req, res) => {
       Math.random() * 1000000
     ).toString()}`
 
-    const encoding = req.body.indexOf("UTF-8") != -1 ? "utf-8" : "utf16le"
+    const encoding = req.body.indexOf("UTF-8") !== -1 ? "utf-8" : "utf16le"
 
     inputFile = fs.writeFile(inputName, req.body, { encoding })
   }
