@@ -2,6 +2,7 @@ import { exec } from "child_process"
 import * as fs from "fs/promises"
 import NextCors from "nextjs-cors"
 import { promisify } from "util"
+import { XMLParser } from "fast-xml-parser"
 
 const execPr = promisify(exec)
 
@@ -40,7 +41,10 @@ const post = async (req, res) => {
     inputName = `tmp/in_${Date.now()}_${Math.ceil(
       Math.random() * 1000000
     ).toString()}`
-    inputFile = fs.writeFile(inputName, req.body, { encoding: "utf16le" })
+
+    const encoding = req.body.indexOf("UTF-8") != -1 ? "utf-8" : "utf16le"
+
+    inputFile = fs.writeFile(inputName, req.body, { encoding })
   }
 
   const outputName = `tmp/out_${Date.now()}_${Math.ceil(
