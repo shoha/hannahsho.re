@@ -1,15 +1,12 @@
 version: "3.8"
 services:
-  app:
-    build:
-      context: .
-      target: base
-    command: bash -c 'yarn && yarn dev'
-    environment:
-      - NODE_ENV=development
-    ports:
-      - "3000:3000"
-      - "6006:6006"
-    working_dir: /app
-    volumes:
-      - .:/app:cached
+  hannahshore-web:
+    image: shoha/newport:hannahshore
+    networks:
+      - nginx
+    command: yarn start --hostname 0.0.0.0
+
+networks:
+  nginx:
+    external: true
+    name: nginx-config
