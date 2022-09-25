@@ -55,6 +55,7 @@ runs:
         use_context: true
 
     - name: Deploy to remote host.
+      shell: bash
       run: |
         docker-compose -f docker-compose.prod.yml pull
         docker-compose -f docker-compose.prod.yml down --remove-orphans
