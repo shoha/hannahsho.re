@@ -1,12 +1,10 @@
 version: "3.8"
 services:
-  app:
+  hannahshore-web:
     image: shoha/newport:hannahshore
     networks:
       - nginx
     command: yarn start --hostname 0.0.0.0
-    ports:
-      - "3000:3000"
 
 networks:
   nginx:
