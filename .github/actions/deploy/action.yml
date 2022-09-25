@@ -1,0 +1,61 @@
+name: "Deploy."
+description: "Builds and deploys."
+inputs:
+  docker-user-name:
+    required: true
+    description: User name for remote docker repository.
+  docker-password:
+    required: true
+    description: Password for remote docker repository.
+  docker-image:
+    required: true
+    description: Docker image identifier, including repo, name, and tag.
+  remote-known-host-key:
+    required: true
+    description: The known_hosts formatted public key for the remote host.
+  ssh-key:
+    required: true
+    description: SSH key which can be used to connect to remote-host.
+  remote-user:
+    required: false
+    description: User to log in with on the remote host.
+    default: root
+  remote-port:
+    required: false
+    description: SSH port on the remote host.
+    default: "22"
+  remote-host:
+    required: true
+    description: Address of the remote host to delpoy your app to.
+
+runs:
+  using: "composite"
+  steps:
+    - name: Checkout code.
+      uses: actions/checkout@v2
+
+    - name: Login to Docker Hub
+      uses: docker/login-action@v2
+      with:
+        username: ${{ input.docker-user-name }}
+        password: ${{ input.docker-password }}
+
+    - name: Build latest image.
+      uses: docker/build-push-action@v3
+      with:
+        tags: ${{ input.docker-image }}
+        push: true
+
+    - uses: arwynfr/actions-docker-context@v2
+      with:
+        docker_host: "ssh://${{ input.remote-user }}@${{ input.remote-host }}:${{ input.remote-port }}"
+        context_name: "remote"
+        ssh_cert: ${{ input.remote-known-host-key }}
+        ssh_key: ${{ input.ssh-key }}
+        use_context: true
+
+    - name: Deploy to remote host.
+      run: |
+        docker-compose -f docker-compose.prod.yml pull
+        docker-compose -f docker-compose.prod.yml down --remove-orphans
+        docker-compose -f docker-compose.prod.yml up -d
